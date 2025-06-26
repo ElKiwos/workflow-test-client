@@ -1,0 +1,20 @@
+on:
+  pull_request:
+    # You can add specific pull request types too.
+    # If this is omitted, the workflow will only executed on opened, synchronize, and reopened
+    # which is enough for generic use cases.
+    # Below is the list of supported pull request sub-events
+    # types: [opened, reopened, ready_for_review, unlocked, synchronize]
+
+jobs:
+  cpr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate the pull request
+        uses: Namchee/conventional-pr@v0.15.6
+        with:
+          access_token: ${{ secrets.GITHUB_TOKEN }}
+
+          issue: false
+          commit_pattern: |
+            ^(?<type>build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test|¯\\_\(ツ\)_\/¯)(?<scope>\(\w+\)?((?=:\s)|(?=!:\s)))?(?<breaking>!)?(?<subject>:\s.*)?|^(?<merge>Merge \w+)
