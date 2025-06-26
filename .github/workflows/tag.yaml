@@ -1,0 +1,10 @@
+name: Tag commit
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-tag-commit:
+    uses: ElKiwos/workflow-test-source/.github/workflows/tag.yaml@main
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
