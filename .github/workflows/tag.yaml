@@ -1,3 +1,13 @@
+name: Pre Commit
+
+on:
+  push:
+
+jobs:
+  call-pre-commit:
+    uses: ElKiwos/workflow-test-source/.github/workflows/pre-commit.yaml@main
+
+---
 name: Tag commit
 
 on:
