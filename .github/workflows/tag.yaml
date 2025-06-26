@@ -4,6 +4,8 @@ on:
   workflow_dispatch:
 
 jobs:
+  call-pre-commit:
+    uses: ElKiwos/workflow-test-source/.github/workflows/pre-commit.yaml@main
   call-tag-commit:
     uses: ElKiwos/workflow-test-source/.github/workflows/tag.yaml@main
     secrets:
